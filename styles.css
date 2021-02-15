@@ -1,0 +1,255 @@
+/* RESOURCES */
+    /* https://css-tricks.com/guide-svg-animations-smil/ */
+    /* https://css-tricks.com/svg-path-syntax-illustrated-guide/ */
+    /* https://undraw.co/ */
+    /* http://examples.2frontend.info/city/ */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f2f2f2;
+    background: repeating-linear-gradient(
+        to bottom,
+        #f2f2f2,
+        #f2f2f2 50%,
+        #f2f2f299 50%,
+        #f2f2f299);
+    background-size: 100% 50px;
+    width: min-content;
+    border: #3F3D56 solid 5px;
+    outline: #FF6584 solid 5px;
+    margin: 40px auto;
+    box-shadow: 6px 6px 6px 3px #ccc;
+}
+
+.park {
+    background-color: #f2f2f2;
+    padding-bottom: 30px;
+}
+
+h1 {
+    color: #3F3D56;
+    font-family: 'Truculenta', sans-serif;
+    font-size: 45px;
+    text-align: center;
+    margin: 0;
+    width: 100%;
+    line-height: 50px;
+    padding-top: 30px;
+}
+
+h2 {
+    color: #FF6584;
+    font-family: 'Truculenta', sans-serif;
+    font-size: 35px;
+    text-align: right;
+    width: 100%;
+    margin: 0;
+    padding-right: 114px;
+}
+
+.sky {
+    position: absolute;
+    top: 160px;
+    z-index: 5;
+}
+
+.park {
+    width: 713px;
+    margin: 0 auto;
+}
+
+.scene {
+    position: relative;
+    width: 713px;
+    margin: 0 auto;
+}
+
+/* ferris wheel animation */
+.ferris-wheel {
+    position: absolute;
+    top: -10px;
+    left: 155px;
+    z-index: 10;
+    animation: wheel-spin 20s linear infinite;
+}
+
+.cart {
+    transform-origin: top;
+    position: absolute;
+    z-index: 1;
+    animation: cart-spin 20s linear infinite;
+}
+
+.cart1 {
+    top: 6%;
+    left: 43.7%;
+}
+
+.cart2 {
+    top: 18%;
+    left: 75%;
+}
+
+.cart3 {
+    top: 18%;
+    left: 13%;
+}
+
+.cart4 {
+    top: 49%;
+    left: 85%;
+}
+
+.cart5 {
+    top: 49%;
+    left: 3%;
+}
+
+.cart6 {
+    top: 78%;
+    left: 74%;
+}
+
+.cart7 {
+    top: 78%;
+    left: 14%;
+}
+
+.cart8 {
+    top: 89%;
+    left: 43.7%;
+}
+
+/* transform origin/box */
+#ballon1, #l-circle1, #l-circle2, #cloud-right, #cloud-left, 
+#wings1, #wings2, #wings3, #bird1, #bird2, #bird3, #sun {
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+/* ballon animation */
+#ballon1 {
+    animation: rise 15s linear forwards;
+}
+
+/* leaves on trees animation */
+#l-circle1 { /* left tree */
+    animation: fall-left 10s linear forwards;
+}
+
+#r-circle1 { /* right tree */
+    animation: fall-right 10s 5s linear forwards;
+}
+
+/* cloud animation */
+#cloud-right {
+    animation: float-right 200s -70s linear infinite;
+} 
+
+#cloud-left {
+    animation: float-left 200s -150s linear infinite; 
+}
+
+/* bird animation */
+#wings1, #wings2, #wings3 {
+    animation: wings 3s linear infinite alternate;
+}
+
+#bird1 {
+    animation: fly1 15s linear infinite;
+}
+
+#bird2 {
+    animation: fly2 12s -1s linear infinite;
+}
+
+#bird3 {
+    animation: fly3 13s -5s linear infinite;
+}
+
+/* sun animation */
+#sun {
+    animation: shine 10s linear infinite alternate;
+}
+
+/* keyframes */
+@keyframes wheel-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(1turn); }
+}
+
+@keyframes cart-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(-1turn); }
+}
+
+@keyframes rise {
+    0% { transform:translateY(-30px) rotate(0deg); }
+    10% { transform:translateY(-60px) rotate(5deg); }
+    20% { transform:translateY(-90px) rotate(8deg); }
+    30% { transform:translateY(-120px) rotate(10deg); }
+    40% { transform:translateY(-150px) rotate(8deg); }
+    50% { transform:translateY(-180px) rotate(5deg); }
+    60% { transform:translateY(-210px) rotate(2deg); }
+    70% { transform:translateY(-240px) rotate(5deg); }
+    80% { transform:translateY(-290px) rotate(5deg); }
+    90% { transform:translateY(-320px) rotate(8deg); }
+    100% { transform:translateY(-350px) rotate(10deg); }
+}
+
+@keyframes fall-left {
+    0% { transform:translate(0px, 0px); }
+    25% { transform:translate(8px, 20px); }
+    50% { transform:translate(0px, 42px); }
+    75% { transform:translate(10px, 58px); }
+    100% { transform:translate(0px, 72px); }
+}
+
+@keyframes fall-right {
+    0% { transform:translate(0px, 0px); }
+    25% { transform:translate(15px, 20px); }
+    50% { transform:translate(0px, 42px); }
+    75% { transform:translate(20px, 58px); }
+    100% { transform:translate(0px, 100px); }
+}
+
+@keyframes float-left {
+    from { transform:translate(517px, 22px); }
+    to { transform:translate(-216px, 0px); }
+}
+
+@keyframes float-right {
+    from { transform:translate(236px, 0px); }
+    to { transform:translate(-507px, -14px); }
+}
+
+@keyframes fly1 {
+    from { transform:translateX(683px); }
+    to { transform:translateX(-42px); }
+}
+
+@keyframes fly2 {
+    from { transform:translateX(423px); }
+    to { transform:translateX(-302px); }
+}
+
+@keyframes fly3 {
+    from { transform:translateX(73px); }
+    to { transform:translateX(-652px); }
+}
+
+@keyframes wings {
+    0% { transform: rotate(-20deg);  }
+    25% { transform: rotate(0deg); }
+    50% { transform: rotate(20deg); }
+    75% { transform: rotate(-20deg); }
+    100% { transform: rotate(0deg); }
+}
+
+@keyframes shine {
+    from { fill: #ffe9a5; transform:scale(1); }
+    to { fill: #FF6584; transform:scale(1.1); }
+}
